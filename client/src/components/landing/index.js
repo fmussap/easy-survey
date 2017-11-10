@@ -2,8 +2,9 @@ import React from 'react'
 
 const Landing = () => {
   return (
-    <div>
-      Landing...
+    <div style={{ textAlign: 'center' }}>
+      <h1>Easy Survey!</h1>
+      Collect feedback from your users
     </div>
   )
 }
