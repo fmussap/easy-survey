@@ -19,7 +19,8 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "cd client && yarn start",
-    "dev": "concurrently \"yarn server\" \"yarn client\""
+    "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && yarn && yarn build"
   },
   "author": "",
   "license": "ISC",
