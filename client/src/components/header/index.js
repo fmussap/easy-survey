@@ -32,7 +32,10 @@ class Header extends Component {
             to={this.props.auth ? '/surveys' : '/'}
             className='brand-logo'
           >
-            Easy Survey
+            <div>
+              <i className='material-icons' style={{ fontSize: 40 }}>home</i>
+              Easy Survey
+            </div>
           </Link>
           <ul className='right'>
             {this.showButton()}
