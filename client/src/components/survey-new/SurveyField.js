@@ -2,8 +2,6 @@ import React from 'react'
 import TextField from 'material-ui/TextField'
 
 const SurveyField = ({ icon, label, input, meta: { touched, error }, ...custom }) => {
-  // console.log('input', input)
-  // color: '#26a69a'
   return (
     <div style={{ padding: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <i
@@ -19,7 +17,6 @@ const SurveyField = ({ icon, label, input, meta: { touched, error }, ...custom }
         errorText={touched && error}
         {...input}
         {...custom}
-        icon='person'
         fullWidth
         multiLine
         floatingLabelShrinkStyle={{ color: '#00BCD4', fontWeight: 'bold' }}

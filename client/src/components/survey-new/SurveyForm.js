@@ -6,17 +6,11 @@ import { Link } from 'react-router-dom'
 
 import SurveyField from './SurveyField'
 import validateEmails from 'utils/validateEmails'
-
-const FIELDS = [
-  { label: 'Campaign Title', name: 'title', icon: 'edit' },
-  { label: 'Subject Line', name: 'subject', icon: 'edit' },
-  { label: 'Email Body', name: 'body', icon: 'edit' },
-  { label: 'Recipient List', name: 'recipients', icon: 'email' }
-]
+import formFields from './formFields'
 
 class SurveyForm extends Component {
   renderFields (name, label, icon) {
-    return FIELDS.map(({ name, label, icon }) => {
+    return formFields.map(({ name, label, icon }) => {
       return (
         <div className='row' key={name}>
           <Field
@@ -35,9 +29,10 @@ class SurveyForm extends Component {
     const { handleSubmit } = this.props
     return (
       <div className='row'>
+        <h5>New Survey</h5>
         <MuiThemeProvider>
           <form
-            onSubmit={handleSubmit(values => console.log('values', values))}
+            onSubmit={handleSubmit(this.props.onSurveyNext)}
           >
             {this.renderFields()}
             <Link to='/surveys'>
@@ -47,7 +42,6 @@ class SurveyForm extends Component {
             </Link>
             <button
               className='btn waves-effect waves-light green darken-2 right'
-              type='submit'
               name='next'
             >
               Next
@@ -62,20 +56,14 @@ class SurveyForm extends Component {
 
 const validate = (values) => {
   const errors = {}
-  const requiredFields = {
-    title: 'Please enter a campaign title',
-    subject: 'Please enter a subject',
-    body: 'Please enter a body',
-    recipients: 'Please enter at least one email'
-  }
 
   errors.recipients = validateEmails(values.recipients || '')
 
-  Object.keys(requiredFields).map(field => {
-    if (!values[field]) {
-      errors[field] = requiredFields[field]
+  formFields.map(({ name, error }) => {
+    if (!values[name]) {
+      errors[name] = error
     }
-    return errors[field]
+    return errors[name]
   })
 
   return errors
@@ -83,5 +71,6 @@ const validate = (values) => {
 
 export default reduxForm({
   validate,
-  form: 'surveyForm'
+  form: 'surveyForm',
+  destroyOnUnmount: false
 })(connect(null, null)(SurveyForm))

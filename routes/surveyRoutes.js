@@ -1,4 +1,7 @@
 'use strict'
+
+const Path = require('path-parser')
+const { URL } = require('url')
 const mongoose = require('mongoose')
 
 const requireLogin = require('../middlewares/requireLogin')
@@ -11,6 +14,15 @@ const Survey = mongoose.model('surveys')
 module.exports = (app) => {
   app.get('/api/surveys/thanks', (req, res) => {
     res.send('Thanks for voting!')
+  })
+  app.post('/api/surveys/webhooks', (req, res) => {
+    const events = req.body.map((event) => {
+      const pathname = new URL(event.url).pathname
+      const p = new Path('/api/surveys/:surveyId/:choice')
+      return console.log(p.test(pathname))
+    })
+    res.send({})
+    return events
   })
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
     const { title, subject, body, recipients } = req.body
