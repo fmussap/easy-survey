@@ -4,7 +4,7 @@ import { fetchSurveys } from 'actions'
 
 class SurveysList extends Component {
   renderSurveys () {
-    return this.props.surveys.reverse().map(({
+    return this.props.surveys.map(({
       _id, title, body, dateSent, yes, no, lastResponded
     }) => {
       return (
