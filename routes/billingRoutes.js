@@ -9,7 +9,8 @@ module.exports = app => {
     const charge = await stripe.charges.create({
       amount: 500,
       currency: 'usd',
-      description: '$5 for 5 survey credits (use 4242 4242 4242 4242 as a card number',
+      description: '$5 for 5 survey credits' +
+      '(use 4242 4242 4242 4242 as a card number)',
       source: req.body.id
     })
     if (charge.paid) {
