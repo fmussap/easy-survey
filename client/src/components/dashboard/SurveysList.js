@@ -21,7 +21,12 @@ class SurveysList extends Component {
           <div className='card-action blue-grey lighten-4'>
             <div className='z-depth-1 chip green darken-1 white-text'>Yes: {yes}</div>
             <div className='z-depth-1 chip red darken-1 white-text'>No: {no}</div>
-            <div className='right'>Last vote: {new Date(lastResponded).toLocaleDateString()}</div>
+            <div className='right'>
+              Last vote: {lastResponded 
+                ? new Date(lastResponded).toLocaleDateString()
+                : 'none'
+              }
+            </div>
           </div>
         </div>
       )
