@@ -9,7 +9,7 @@ class Payments extends Component {
     return (
       <StripeCheckout
         name='Easy Survey'
-        description='$5 for 5 surveys credits'
+        description='4242 4242 4242 4242 as a card number'
         amount={500}
         currency='EUR'
         token={token => this.props.handleToken(token)}
