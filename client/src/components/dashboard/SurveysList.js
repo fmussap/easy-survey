@@ -37,7 +37,7 @@ class SurveysList extends Component {
   }
   render () {
     return (
-      <div>
+      <div style={{ padding: 10 }}>
         {this.renderSurveys()}
       </div>
     )

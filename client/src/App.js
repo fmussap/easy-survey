@@ -4,10 +4,9 @@ import { connect } from 'react-redux'
 import 'materialize-css/dist/css/materialize.min.css'
 
 import { fetchUser } from 'actions'
-import Landing from 'components/landing'
 import Header from 'components/header'
-import Dashboard from 'components/dashboard'
 import SurveyNew from 'components/survey-new'
+import Main from 'components/main'
 import 'css/style.css'
 
 class App extends Component {
@@ -20,8 +19,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Route exact path='/' component={Landing} />
-            <Route exact path='/surveys' component={Dashboard} />
+            <Route exact path='/' component={Main} />
             <Route path='/surveys/new' component={SurveyNew} />
           </div>
         </BrowserRouter>

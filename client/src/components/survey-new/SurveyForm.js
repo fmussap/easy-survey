@@ -35,7 +35,7 @@ class SurveyForm extends Component {
             onSubmit={handleSubmit(this.props.onSurveyNext)}
           >
             {this.renderFields()}
-            <Link to='/surveys'>
+            <Link to='/'>
               <button className='btn waves-effect waves-light red'>
                 Cancel
               </button>

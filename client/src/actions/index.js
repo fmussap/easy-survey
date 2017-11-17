@@ -33,7 +33,7 @@ export const submitSurvey = (values, history) => async dispatch => {
   const url = '/api/surveys'
   const request = await axios.post(url, values)
 
-  history.push('/surveys')
+  history.push('/')
   dispatch({
     type: actions.FETCH_USER,
     payload: request.data
