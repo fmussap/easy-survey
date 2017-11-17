@@ -11,6 +11,15 @@ export const fetchUser = () => async dispatch => {
   })
 }
 
+export const fetchSurveys = () => async dispatch => {
+  const url = '/api/surveys'
+  const request = await axios.get(url)
+  dispatch({
+    type: actions.FETCH_SURVEYS,
+    payload: request.data
+  })
+}
+
 export const handleToken = (token) => async dispatch => {
   const url = '/api/stripe'
   const request = await axios.post(url, token)
