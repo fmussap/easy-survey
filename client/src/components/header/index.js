@@ -30,7 +30,7 @@ class Header extends Component {
         <div className='nav-wrapper' style={{ paddingLeft: 10 }}>
           <Link
             to='/'
-            className='brand-logo'
+            className='brand-logo left'
           >
             <div>
               <i className='material-icons' style={{ fontSize: 40 }}>home</i>
